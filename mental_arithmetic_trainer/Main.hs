@@ -11,7 +11,7 @@ main = do
   answerBox <- hBoxNew True 10
   problemLabel <- labelNew Nothing
   newGame problemLabel answerBox window
-  windowSetTitle window "Mini Calc"
+  windowSetTitle window "Mental Arithmetic Trainer"
   containerAdd window vbox
   boxPackStart vbox answerBox PackGrow 0
   boxPackStart vbox problemLabel PackGrow 0
@@ -24,7 +24,7 @@ newGame problemLabel answerBox window = do
   (problem, solution) <- newTask
   labelSetText problemLabel problem
   containerForeach answerBox (\w -> containerRemove answerBox w)
-  
+
   solutions <- possibleSolutions solution
   forM_ solutions (\i -> do genButton answerBox (Just i))
   widgetShowAll window
@@ -45,7 +45,7 @@ randomNumbers count numbers = do
   if (length numbers' == count)
                then numbers
                else randomNumbers count $ return $ numbers' ++ [rand]
-  
+
 newTask :: IO (String, Int)
 newTask = do
   solution <- randomRIO (1, 10) :: IO Int
@@ -80,4 +80,3 @@ setButtonAction solution button problemLabel answerBox window = do
     onClicked button $ newGame problemLabel answerBox window
     return ()
   return ()
-
