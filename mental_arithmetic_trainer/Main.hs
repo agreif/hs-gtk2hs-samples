@@ -1,5 +1,4 @@
 import Graphics.UI.Gtk
-import Data.IORef
 import System.Random
 import Control.Monad
 
