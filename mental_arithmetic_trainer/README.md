@@ -16,3 +16,5 @@ x / y
 ```
 
 ![screenshot](screenshot.png)
+
+BTW it sometimes hangs... I don't know why :(
